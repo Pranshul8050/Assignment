@@ -24,6 +24,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         />
+        <meta name="viewport" content="width=1280, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
@@ -33,7 +34,6 @@ export default function RootLayout({
     </html>
   )
 }
-
 
 
 import './globals.css'

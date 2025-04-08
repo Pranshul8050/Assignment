@@ -12,6 +12,12 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true)
+
+    // Add meta viewport tag to prevent zooming on mobile
+    const meta = document.createElement("meta")
+    meta.name = "viewport"
+    meta.content = "width=1280, initial-scale=1.0"
+    document.getElementsByTagName("head")[0].appendChild(meta)
   }, [])
 
   const toggleTheme = () => {
@@ -21,9 +27,9 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 min-w-[1280px]">
       {/* Home Section */}
-      <section id="home" className="min-h-screen relative">
+      <section id="home" className="h-screen relative">
         {/* Header */}
         <header className="py-6 px-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -49,7 +55,7 @@ export default function Home() {
               Home
             </Link>
             <Link
-              href="#about"
+              href="#about-anchor"
               className="text-xs font-medium hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
             >
               About
@@ -155,7 +161,8 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen relative">
+      <section id="about" className="relative">
+        <div id="about-anchor" className="scroll-mt-16"></div>
         {/* Header */}
         <header className="py-6 px-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -181,7 +188,7 @@ export default function Home() {
               Home
             </Link>
             <Link
-              href="#about"
+              href="#about-anchor"
               className="text-xs font-medium hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
             >
               About
@@ -344,4 +351,3 @@ export default function Home() {
     </div>
   )
 }
-
